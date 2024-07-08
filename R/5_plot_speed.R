@@ -25,12 +25,8 @@ plot_speed <- function(...){
 
   data_speed <- do.call(rbind,
                         lapply(data$car_speed_hist_0to70plus,
-                               function(i) {# i est une chaine de caractère
-                                 # Divisez la chaîne en valeurs individuelles
-                                 speed_str <- strsplit(i, ", ")[[1]]
-
-                                 # Convertissez en nombres
-                                 speed <- as.numeric(speed_str)
+                               function(i) {
+                                 speed <- unlist(i)
                                  speed_cumsum <- cumsum(speed)
                                  c(speed_cumsum[1], speed_cumsum[2], speed_cumsum[3], speed_cumsum[4])
                                }
@@ -79,7 +75,7 @@ plot_speed <- function(...){
   }
 
   chart <- ggplot(data_plot)+
-    aes(x=.data$count, y=.data$percentage, color = .data$legend, group=.data$legend)+
+    aes(x=.data$count, y=.data$speed, color = .data$legend, group=.data$legend)+
     geom_line(color="black")+ geom_smooth(method='gam', formula=y ~ s(x, bs = "cs"))+
     labs(x="Nombre de vehicules sur une tranche horaire", y = "Pourcentage de vehicule depassant la vitesse donnees")+
     ggtitle("Evolution de la vitesse de conduite selon le nombre d'usagers") +

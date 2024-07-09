@@ -15,8 +15,8 @@ simple_plot <- function(data, sensor, date_range){
     aes(x=date, y=.data$total) +
     geom_line(color="black")+
     geom_smooth(method='gam', formula=y ~ s(x, bs = "cs"),color="#B1D62E", size=2) + # trend
-    ylab("Nombre de voitures et de poids lourds de Ken")+
-    xlab("Ken Date")+
+    ylab("Nombre de voitures et de poids lourds de Ken 1")+
+    xlab("Ken Date 1")+
     ggtitle("Nombre de voitures et de poids lourd en fonction du temps")+ # legend
     theme_bw() + # set the design of the chart
     theme(panel.background = element_rect(fill = "#F5F5F5"), # background color

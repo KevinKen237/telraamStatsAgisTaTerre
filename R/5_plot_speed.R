@@ -84,7 +84,7 @@ plot_speed <- function(...){
     theme_bw()+
     theme(panel.background = element_rect(fill = "#F5F5F5"), # background color
           panel.grid = element_line(color = "#E3E3E3"), # grid color
-          panel.border = element_rect(color = "#E3E3E3", size = 2)) # border color and size
+          panel.border = element_rect(color = "#E3E3E3", linewidth = 2)) # border color and size
 
   return(list(chart=chart,
               DE_test = DE_test,

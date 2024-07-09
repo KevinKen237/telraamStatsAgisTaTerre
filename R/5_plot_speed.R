@@ -22,7 +22,7 @@ plot_speed <- function(...){
   if (is.null(data)){
     return(NULL)
   }
-
+  print(class(data$car_speed_hist_0to70plus))
   data_speed <- do.call(rbind,
                         lapply(data$car_speed_hist_0to70plus,
                                function(i) {
